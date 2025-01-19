@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("sotering")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bb7585de9107876b05c203e831fa2eed950cb6b7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+048331c5204e7fd5cb06620e2786d34f0ae9db52")]
 [assembly: System.Reflection.AssemblyProductAttribute("sotering")]
 [assembly: System.Reflection.AssemblyTitleAttribute("sotering")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
