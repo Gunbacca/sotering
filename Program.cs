@@ -1,46 +1,53 @@
 ﻿using System.Diagnostics;
-
-List<int> tal = Enumerable.Range(1, 100000).ToList();
-Random random = new Random();
-tal = tal.OrderBy(x => random.Next()).ToList();
-
  Stopwatch stopwatch = new Stopwatch();
-        stopwatch.Start();
+stopwatch.Start();
+List<int> tal = new List<int>();
+Random random = new Random();
 
-        BubbleSort(tal);
+for(int i = 0; i < 100_00; i++){
+    tal.Add(random.Next());
+}
+stopwatch.Stop();
+stopwatch.Reset();
+List<int> bubble = new List<int>(tal);
+stopwatch.Start();
 
-        stopwatch.Stop();
+SelectionSort(bubble);
 
-        Console.WriteLine($"Tiden för loopen att köra: {stopwatch.Elapsed.Microseconds} μs");
-    
+stopwatch.Stop();
 
-void BubbleSort(List<int>bubble){
+Console.WriteLine($"Tiden för loopen att köra selecionsort: {stopwatch.Elapsed.TotalMilliseconds} ms");
+List<int> merge = new List<int>(tal);
+stopwatch.Restart();
+MergeSort(tal);
+stopwatch.Stop();    
+Console.WriteLine($"Tiden för loopen att köra Mergesort: {stopwatch.Elapsed.TotalMilliseconds} ms");
+List<int> bubble1 = new List<int>(tal);
+stopwatch.Restart();
+MergeSort(tal);
+stopwatch.Stop();    
+Console.WriteLine($"Tiden för loopen att köra bulllesort: {stopwatch.Elapsed.TotalMilliseconds} ms");
+List<int> quick = new List<int>(tal);
+stopwatch.Restart();
+MergeSort(tal);
+stopwatch.Stop();    
+Console.WriteLine($"Tiden för loopen att köra quicksort: {stopwatch.Elapsed.TotalMilliseconds} ms");
+
+
+
+
+void BubbleSort(List<int> bubble){
     for(int i=0; i<bubble.Count; i++){
-    for(int j=0; j<bubble.Count-1-i; j++){
-        if(bubble[j]>bubble[j+1]){
-            int swap= bubble[j];
-            bubble[j]=bubble[j+1];
-            bubble[j+1]=swap;
+        for(int j=0; j<bubble.Count-1-i; j++){
+            if(bubble[j]>bubble[j+1]){
+                int swap= bubble[j];
+                bubble[j]=bubble[j+1];
+                bubble[j+1]=swap;
+            }
         }
     }
-}
 } 
-/*
-using System.Diagnostics;
 
-List<int> tal = Enumerable.Range(1, 10000).ToList();
-Random random = new Random();
-tal = tal.OrderBy(x => random.Next()).ToList();
-
-Stopwatch stopwatch = new Stopwatch();
-        stopwatch.Start();
-
-       SelectionSort(tal);
-
-        stopwatch.Stop();
-
-        Console.WriteLine($"Tiden för loopen att köra: {stopwatch.Elapsed.Microseconds} μs");
-    
 
 void SelectionSort(List<int> list)
 {
@@ -60,8 +67,8 @@ void SelectionSort(List<int> list)
         list[i] = temp;
     }
 }
-*/
- /*void MergeSort(List<int> list)
+
+ void MergeSort(List<int> list)
 {
     if (list.Count <= 1)
         return;
@@ -98,8 +105,8 @@ void Merge(List<int> list, List<int> left, List<int> right)
         list[k++] = right[j++];
     }
 }
-*/
- /*void QuickSort(List<int> list, int low, int high)
+
+ void QuickSort(List<int> list, int low, int high)
 {
     if (low < high)
     {
@@ -128,4 +135,3 @@ void Merge(List<int> list, List<int> left, List<int> right)
     list[high] = swapTemp;
     return i + 1;
 }
-*/
