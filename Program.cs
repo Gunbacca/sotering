@@ -28,7 +28,7 @@ stopwatch.Stop();
 Console.WriteLine($"Tiden för loopen att köra bubblesort: {stopwatch.Elapsed.TotalMilliseconds} ms");
 List<int> quick = new List<int>(tal);
 stopwatch.Restart();
-QuickSort(quick);
+QuickSort(quick,0,quick.Count-1);
 stopwatch.Stop();    
 Console.WriteLine($"Tiden för loopen att köra quicksort: {stopwatch.Elapsed.TotalMilliseconds} ms");
 
